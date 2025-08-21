@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estoque</title>
+    <link rel="stylesheet" href="style.css"> <!-- Importa o CSS externo -->
+</head>
+<body>
+
+<header>
+    <h1> Sistema de Controle de Estoque</h1>
+</header>
+
+<nav>
+    <h2>O</h2>
+</nav>
+
+<main>
+    <!-- Aba Cadastro -->
+    <section id="cadastro" class="tab-content active">
+        <h2>Cadastrar Produto</h2>
+        <form>
+            <input type="text" placeholder="Nome do produto" required>
+            <input type="number" placeholder="Quantidade " required>
+            <input type="number" placeholder="Código de barras" required>
+            <input type="number" placeholder="Preço" required>
+            <button type="submit" class="submit-btn">Cadastrar</button>
+        </form>
+    </section>
+
+    <!-- Aba Entrada -->
+    <section id="entrada" class="tab-content">
+        <h2>Registrar Entrada de Produto</h2>
+        <form>
+            <input type="text" placeholder="Código de barras" required>
+            <input type="number" placeholder="Quantidade" required>
+            <button type="submit" class="submit-btn">Registrar Entrada</button>
+        </form>
+    </section>
+
+    <!-- Aba Saída -->
+    <section id="saida" class="tab-content">
+        <h2>Registrar Saída de Produto</h2>
+        <form>
+            <input type="text" placeholder="Nome do produto" required>
+            <input type="number" placeholder="Quantidade" required>
+            <button type="submit" class="submit-btn">Registrar Saída</button>
+        </form>
+    </section>
+
+    <!-- Aba Clientes -->
+    <section id="clientes" class="tab-content">
+        <h2>Cadastrar Cliente</h2>
+        <form>
+            <input type="text" placeholder="Nome do cliente" required>
+            <input type="email" placeholder="E-mail" >
+            <input type="number" placeholder="Telefone" required>
+            <input type="text" placeholder="Endereço">
+            <button type="submit" class="submit-btn">Cadastrar Cliente</button>
+        </form>
+    </section>
+</main>
+
+<script>
+    const buttons = document.querySelectorAll(".tab-btn");
+    const contents = document.querySelectorAll(".tab-content");
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            buttons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            contents.forEach(content => {
+                content.classList.remove("active");
+                if (content.id === btn.dataset.tab) {
+                    content.classList.add("active");
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
