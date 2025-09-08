@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de Estoque</title>
-    <link rel="stylesheet" href="style.css"> <!-- Importa o CSS externo -->
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
@@ -13,7 +13,7 @@
 </header>
 
 <nav>
-    <h2>O</h2>
+    <h2>Cadastro Mais fácil</h2>
 </nav>
 
 <main>
@@ -33,7 +33,7 @@
     <section id="entrada" class="tab-content">
         <h2>Registrar Entrada de Produto</h2>
         <form>
-            <input type="text" placeholder="Código de barras" required>
+            <input type="text" placeholder="Código de Barras" required>
             <input type="number" placeholder="Quantidade" required>
             <button type="submit" class="submit-btn">Registrar Entrada</button>
         </form>
@@ -45,6 +45,8 @@
         <form>
             <input type="text" placeholder="Nome do produto" required>
             <input type="number" placeholder="Quantidade" required>
+            <input type="number" placeholder="Código de Barras" required>
+            <input type="number" placeholder="Preço do Produto">    
             <button type="submit" class="submit-btn">Registrar Saída</button>
         </form>
     </section>
@@ -62,24 +64,7 @@
     </section>
 </main>
 
-<script>
-    const buttons = document.querySelectorAll(".tab-btn");
-    const contents = document.querySelectorAll(".tab-content");
 
-    buttons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            buttons.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-
-            contents.forEach(content => {
-                content.classList.remove("active");
-                if (content.id === btn.dataset.tab) {
-                    content.classList.add("active");
-                }
-            });
-        });
-    });
-</script>
 
 </body>
 </html>
