@@ -1,70 +1,130 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controle de Estoque</title>
-    <link rel="stylesheet" href="style.css"> 
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Controle de Estoque</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <h1>Sistema de Controle de Estoque</h1>
+  </header>
 
-<header>
-    <h1> Sistema de Controle de Estoque</h1>
-</header>
+  <nav class="menu">
+    <h2>Cadastro e Ações</h2>
+    <div class="menu-buttons">
+      <button class="tab-btn" data-target="cadastro">Produtos</button>
+      <button class="tab-btn" data-target="entrada">Entrada</button>
+      <button class="tab-btn" data-target="saida">Saída</button>
+      <button class="tab-btn" data-target="clientes">Clientes</button>
+    </div>
+  </nav>
 
-<nav>
-    <h2>Cadastro Mais fácil</h2>
-</nav>
-
-<main>
-    <!-- Aba Cadastro -->
+  <main>
+    <!-- Aba Cadastro Produto -->
     <section id="cadastro" class="tab-content active">
-        <h2>Cadastrar Produto</h2>
-        <form>
-            <input type="text" placeholder="Nome do produto" required>
-            <input type="number" placeholder="Quantidade " required>
-            <input type="number" placeholder="Código de barras" required>
-            <input type="number" placeholder="Preço" required>
-            <button type="submit" class="submit-btn">Cadastrar</button>
-        </form>
+      <h2>Cadastrar Produto</h2>
+      <form id="form-produto" class="form">
+        <label>
+          Nome
+          <input type="text" name="nome" placeholder="Nome do produto" required />
+        </label>
+        <label>
+          Quantidade
+          <input type="number" name="quantidade" placeholder="Quantidade" required min="0" />
+        </label>
+        <label>
+          Código de Barras
+          <input type="text" name="codigo" placeholder="Código de barras" required />
+        </label>
+        <label>
+          Preço
+          <input type="number" name="preco" placeholder="Preço" step="0.01" required min="0" />
+        </label>
+        <div class="actions">
+          <button type="submit" class="submit-btn">Cadastrar Produto</button>
+          <button type="button" id="limpar-produtos" class="danger">Limpar Produtos</button>
+        </div>
+      </form>
+      
     </section>
 
     <!-- Aba Entrada -->
     <section id="entrada" class="tab-content">
-        <h2>Registrar Entrada de Produto</h2>
-        <form>
-            <input type="text" placeholder="Código de Barras" required>
-            <input type="number" placeholder="Quantidade" required>
-            <button type="submit" class="submit-btn">Registrar Entrada</button>
-        </form>
+      <h2>Registrar Entrada de Produto</h2>
+      <form id="form-entrada" class="form">
+        <label>
+          Código de Barras
+          <input type="text" name="codigo" placeholder="Código de Barras" required />
+        </label>
+        <label>
+          Quantidade
+          <input type="number" name="quantidade" placeholder="Quantidade" required min="1" />
+        </label>
+        <div class="actions">
+          <button type="submit" class="submit-btn">Registrar Entrada</button>
+        </div>
+      </form>
+      
     </section>
 
     <!-- Aba Saída -->
     <section id="saida" class="tab-content">
-        <h2>Registrar Saída de Produto</h2>
-        <form>
-            <input type="text" placeholder="Nome do produto" required>
-            <input type="number" placeholder="Quantidade" required>
-            <input type="number" placeholder="Código de Barras" required>
-            <input type="number" placeholder="Preço do Produto">    
-            <button type="submit" class="submit-btn">Registrar Saída</button>
-        </form>
+      <h2>Registrar Saída de Produto</h2>
+      <form id="form-saida" class="form">
+        <label>
+          Código de Barras
+          <input type="text" name="codigo" placeholder="Código de Barras" required />
+        </label>
+        <label>
+          Quantidade
+          <input type="number" name="quantidade" placeholder="Quantidade" required min="1" />
+        </label>
+        <label>
+          Preço (opcional)
+          <input type="number" name="preco" placeholder="Preço do Produto" step="0.01" min="0" />
+        </label>
+        <div class="actions">
+          <button type="submit" class="submit-btn">Registrar Saída</button>
+        </div>
+      </form>
+      
     </section>
 
     <!-- Aba Clientes -->
     <section id="clientes" class="tab-content">
-        <h2>Cadastrar Cliente</h2>
-        <form>
-            <input type="text" placeholder="Nome do cliente" required>
-            <input type="email" placeholder="E-mail" >
-            <input type="number" placeholder="Telefone" required>
-            <input type="text" placeholder="Endereço">
-            <button type="submit" class="submit-btn">Cadastrar Cliente</button>
-        </form>
+      <h2>Cadastrar Cliente</h2>
+      <form id="form-cliente" class="form">
+        <label>
+          Nome
+          <input type="text" name="nome" placeholder="Nome do cliente" required />
+        </label>
+        <label>
+          E-mail
+          <input type="email" name="email" placeholder="E-mail" />
+        </label>
+        <label>
+          Telefone
+          <input type="tel" name="telefone" placeholder="Telefone" />
+        </label>
+        <label>
+          Endereço
+          <input type="text" name="endereco" placeholder="Endereço" />
+        </label>
+        <div class="actions">
+          <button type="submit" class="submit-btn">Cadastrar Cliente</button>
+          <button type="button" id="limpar-clientes" class="danger">Limpar Clientes</button>
+        </div>
+      </form>
+      
     </section>
-</main>
+  </main>
 
+  <footer>
+    <small>Feito Para Você — Controle de Estoque local</small>
+  </footer>
 
-
+  <script src="teste.js"></script>
 </body>
 </html>
